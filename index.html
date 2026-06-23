@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>클로드 글쓰기 스킬 5종 — 콘텐츠 글쓰기를 고치는 법</title>
+<meta name="description" content="클로드는 콘텐츠 글쓰기에 약합니다. 이 5개 스킬이 해결합니다. Dumbify, Storytelling, Viral-hooks, Anti-AI-Writing, Voice-DNA." />
+<meta property="og:title" content="클로드 글쓰기 스킬 5종" />
+<meta property="og:description" content="클로드는 콘텐츠 글쓰기에 약합니다. 이 5개 스킬이 해결합니다." />
+<meta property="og:type" content="website" />
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+:root{
+  --black:#0A0A0A;
+  --cream:#F2F0EB;
+  --cream-deep:#EAE7DF;
+  --white:#FFFFFF;
+  --gray:#8E8E93;
+  --gray-line:#E4E1DA;
+  --accent:#E8502A;
+  --accent-soft:#FBE7E0;
+  --radius:24px;
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  letter-spacing:-0.01em;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.accent{color:var(--accent);}
+h1,h2,h3,.sec-title,.detail-title,.hero-title{word-break:keep-all;}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:700;font-size:16px;line-height:1;
+  padding:16px 26px;border-radius:999px;
+  transition:transform .15s ease, opacity .15s ease, background .15s ease;
+  cursor:pointer;border:none;white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-black{background:var(--black);color:#fff;}
+.btn-black:hover{background:#222;}
+.btn-light{background:var(--cream);color:var(--black);}
+.btn-light:hover{background:var(--cream-deep);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{opacity:.92;}
+.btn-sm{padding:11px 18px;font-size:14px;}
+
+/* ---------- nav ---------- */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--gray-line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:-0.02em;}
+.logo .mark{width:26px;height:26px;}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+
+/* ---------- promo banner ---------- */
+.promo-banner{
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--black);color:#fff;
+  padding:9px 12px 9px 12px;border-radius:999px;
+  margin:0 auto 34px;max-width:100%;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 14px 34px -18px rgba(0,0,0,.55);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.promo-banner:hover{transform:translateY(-2px);box-shadow:0 20px 40px -18px rgba(0,0,0,.6);}
+.promo-badge{
+  width:34px;height:34px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,#F2A03C,#E8502A);
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+}
+.promo-text{display:flex;flex-direction:column;line-height:1.2;text-align:left;min-width:0;}
+.promo-text .lbl{font-size:11px;font-weight:700;letter-spacing:.02em;color:#F2A03C;margin-bottom:2px;}
+.promo-text .ttl{font-size:15px;font-weight:800;letter-spacing:-0.01em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.promo-arrow{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:#F2A03C;margin-right:4px;transition:transform .15s ease;}
+.promo-banner:hover .promo-arrow{transform:translateX(3px);}
+@media(max-width:520px){.promo-text .ttl{font-size:13.5px;white-space:normal;}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;text-align:center;padding:40px 0 80px;}
+.hero .wrap{position:relative;z-index:2;}
+.eyebrow{
+  display:inline-block;font-weight:700;font-size:13px;letter-spacing:.02em;
+  color:var(--accent);background:var(--accent-soft);
+  padding:7px 14px;border-radius:999px;margin-bottom:26px;
+}
+h1.hero-title{
+  font-weight:800;font-size:clamp(30px,5.4vw,62px);line-height:1.1;
+  letter-spacing:-0.035em;max-width:none;margin:0 auto;
+  word-break:keep-all;
+}
+.hero-sub{
+  margin:24px auto 0;max-width:48ch;color:var(--gray);
+  font-size:clamp(16px,2.2vw,20px);font-weight:500;line-height:1.55;
+}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:38px;}
+.hero-note{margin-top:18px;color:var(--gray);font-size:13px;font-weight:500;}
+
+/* floating blobs */
+.blob{position:absolute;z-index:1;opacity:.95;pointer-events:none;}
+.blob-1{top:60px;left:-30px;width:130px;transform:rotate(-8deg);}
+.blob-2{top:200px;right:-20px;width:120px;}
+.blob-3{bottom:30px;left:8%;width:84px;}
+.blob-4{top:120px;right:14%;width:60px;}
+@media(max-width:760px){.blob{display:none;}}
+
+/* ---------- problem progression ---------- */
+.progression{background:var(--black);color:#fff;padding:64px 0;}
+.progression h2{font-size:clamp(22px,3.4vw,32px);font-weight:800;text-align:center;letter-spacing:-0.03em;margin-bottom:34px;line-height:1.25;}
+.prog-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 6px;}
+.prog-step{
+  font-weight:700;font-size:clamp(14px,2vw,18px);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  padding:11px 18px;border-radius:999px;
+}
+.prog-step.last{background:var(--accent);border-color:var(--accent);}
+.prog-arrow{color:var(--gray);font-weight:700;font-size:16px;}
+
+/* ---------- section heads ---------- */
+.section{padding:96px 0;}
+.section.cream{background:var(--cream);}
+.sec-head{max-width:46ch;margin-bottom:54px;}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.sec-kicker{font-weight:700;font-size:14px;color:var(--accent);margin-bottom:14px;}
+.sec-title{font-size:clamp(28px,4.4vw,46px);font-weight:800;letter-spacing:-0.035em;line-height:1.08;}
+.sec-desc{margin-top:18px;color:var(--gray);font-size:18px;font-weight:500;line-height:1.55;}
+
+/* ---------- skills grid ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.skills-grid{grid-template-columns:1fr;}}
+.skill-card{
+  background:var(--white);border:1px solid var(--gray-line);
+  border-radius:var(--radius);padding:30px 28px;
+  display:flex;flex-direction:column;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.section.cream .skill-card{background:var(--white);}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(0,0,0,.25);}
+.skill-icon{
+  width:52px;height:52px;border-radius:14px;background:var(--black);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.skill-icon svg{width:26px;height:26px;stroke:#fff;}
+.skill-name{font-size:21px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;}
+.skill-desc{color:#4a4a4d;font-size:15.5px;font-weight:500;line-height:1.6;flex:1;}
+.skill-tag{
+  margin-top:20px;align-self:flex-start;
+  font-weight:700;font-size:13px;color:var(--accent);
+  background:var(--accent-soft);padding:7px 13px;border-radius:999px;
+}
+.skill-card.diy .skill-icon{background:var(--accent);}
+
+/* ---------- detail alternating ---------- */
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.detail + .detail{margin-top:96px;}
+.detail.flip .detail-visual{order:2;}
+@media(max-width:840px){.detail{grid-template-columns:1fr;gap:34px;}.detail.flip .detail-visual{order:0;}}
+.detail-title{font-size:clamp(26px,3.8vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.12;}
+.detail-desc{margin-top:20px;color:var(--gray);font-size:17.5px;font-weight:500;line-height:1.6;}
+.check-list{margin-top:26px;display:flex;flex-direction:column;gap:14px;}
+.check-item{display:flex;align-items:center;gap:11px;font-weight:700;font-size:16px;}
+.check-item svg{width:20px;height:20px;flex:none;stroke:var(--accent);}
+.detail-visual{
+  background:var(--cream);border-radius:var(--radius);
+  padding:38px;min-height:300px;display:flex;align-items:center;justify-content:center;
+}
+.section.cream .detail-visual{background:var(--white);}
+
+/* mock card inside visuals */
+.mock{width:100%;max-width:360px;background:#fff;border:1px solid var(--gray-line);border-radius:18px;padding:22px;box-shadow:0 24px 50px -34px rgba(0,0,0,.35);}
+.mock-label{font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+.mock-row{height:11px;border-radius:6px;background:var(--cream-deep);margin-bottom:10px;}
+.mock-row.w80{width:80%;}.mock-row.w60{width:60%;}.mock-row.w40{width:40%;}
+.mock-row.hl{background:var(--accent);width:50%;}
+.mock-divider{height:1px;background:var(--gray-line);margin:16px 0;}
+.mock-strike{position:relative;color:var(--gray);font-weight:500;}
+.mock-pill{display:inline-block;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;background:var(--accent-soft);color:var(--accent);}
+
+/* ---------- install steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:840px){.steps{grid-template-columns:1fr;}}
+.step{background:var(--white);border:1px solid var(--gray-line);border-radius:var(--radius);padding:32px 28px;}
+.section.cream .step{background:var(--white);}
+.step-num{
+  width:40px;height:40px;border-radius:12px;background:var(--black);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;margin-bottom:20px;
+}
+.step h3{font-size:19px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.step .badge{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:4px 9px;border-radius:999px;}
+.step p{color:#4a4a4d;font-size:15px;font-weight:500;line-height:1.6;}
+.step code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--cream);padding:2px 7px;border-radius:6px;}
+
+/* ---------- FAQ ---------- */
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;}
+@media(max-width:840px){.faq-grid{grid-template-columns:1fr;gap:24px;}}
+.faq-item{border-bottom:1px solid var(--gray-line);}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;text-align:left;
+  display:flex;align-items:center;gap:16px;padding:24px 0;
+  font-weight:700;font-size:18px;color:var(--black);font-family:inherit;
+}
+.faq-q .plus{color:var(--accent);font-size:24px;font-weight:600;flex:none;transition:transform .2s ease;line-height:1;width:20px;text-align:center;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease;color:var(--gray);font-size:16px;font-weight:500;line-height:1.65;}
+.faq-a .inner{padding:0 0 24px 36px;}
+
+/* ---------- final CTA ---------- */
+.final{background:var(--cream);}
+.final-inner{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding:80px 0;}
+@media(max-width:760px){.final-inner{grid-template-columns:1fr;text-align:center;}}
+.final h2{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-0.035em;line-height:1.05;}
+.final p{margin-top:18px;color:var(--gray);font-size:18px;font-weight:500;max-width:42ch;}
+.final .hero-cta{justify-content:flex-start;margin-top:30px;}
+@media(max-width:760px){.final .hero-cta{justify-content:center;}.final p{margin-left:auto;margin-right:auto;}}
+.mascot{justify-self:center;width:240px;max-width:100%;}
+
+/* ---------- footer ---------- */
+footer{background:var(--black);color:#fff;padding:56px 0 40px;}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;}
+.foot-brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap;}
+.foot-links a{color:rgba(255,255,255,.7);font-weight:600;font-size:15px;transition:color .15s;}
+.foot-links a:hover{color:#fff;}
+.foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.5);font-size:13px;font-weight:500;}
+
+/* ---------- mobile readability ---------- */
+@media(max-width:600px){
+  .wrap{padding:0 20px;}
+  .section{padding:60px 0;}
+  .hero{padding:26px 0 52px;}
+  .progression{padding:46px 0;}
+  .final-inner{padding:52px 0;}
+
+  /* nav: keep logo + button on one tidy row */
+  .nav-inner{height:60px;}
+  .logo{font-size:15px;gap:7px;}
+  .logo .mark{width:23px;height:23px;}
+  .nav-actions .btn-sm{padding:9px 13px;font-size:12.5px;gap:6px;}
+
+  /* hero */
+  .hero-sub{font-size:15.5px;margin-top:18px;}
+  .hero-cta{margin-top:28px;gap:10px;}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center;}
+  .eyebrow{margin-bottom:20px;}
+
+  /* type scale */
+  .sec-head{margin-bottom:34px;}
+  .sec-desc{font-size:16px;}
+  .detail-desc{font-size:16px;}
+  .detail + .detail{margin-top:60px;}
+  .skill-card{padding:26px 22px;}
+  .skill-desc{font-size:15px;}
+  .faq-q{font-size:16.5px;}
+
+  /* progression chips a touch smaller */
+  .prog-step{padding:9px 14px;}
+}
+
+@media(max-width:380px){
+  /* very small phones: avoid nav crowding */
+  .nav-actions .btn-sm{font-size:0;padding:9px;gap:0;}   /* show icon only */
+  .nav-actions .btn-sm svg{margin:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">
+      <svg class="mark" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" fill="#E8502A"/><path d="M7 15.5L10 8.5l3 7M8 13h4M14.5 8.5v7" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      글쓰기 스킬
+    </a>
+    <div class="nav-actions">
+      <a class="btn btn-black btn-sm" href="https://www.instagram.com/woojooboss_" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="#fff" stroke="none"/></svg>
+        우주보스 인스타그램
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <!-- floating blobs -->
+  <svg class="blob blob-1" viewBox="0 0 120 120" fill="none"><path d="M60 4c20 0 32 14 40 30s14 36-2 52-44 24-64 10S2 56 12 36 40 4 60 4z" fill="#0A0A0A"/></svg>
+  <svg class="blob blob-2" viewBox="0 0 120 120" fill="none"><path d="M22 14l84 30-46 16-12 46-26-92z" fill="#E8502A"/></svg>
+  <svg class="blob blob-3" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="46" fill="#EAE7DF"/><path d="M30 50h40M50 30v40" stroke="#0A0A0A" stroke-width="6" stroke-linecap="round"/></svg>
+  <svg class="blob blob-4" viewBox="0 0 100 100" fill="none"><path d="M50 10l12 26 28 4-20 20 5 28-25-14-25 14 5-28-20-20 28-4z" fill="#0A0A0A"/></svg>
+
+  <div class="wrap">
+    <a class="promo-banner" href="https://blog.naver.com/woojooboss/223558177937" target="_blank" rel="noopener">
+      <span class="promo-badge">🎁</span>
+      <span class="promo-text">
+        <span class="lbl">우주보스의 선물</span>
+        <span class="ttl">10GB 분량의 무료 콘텐츠 소스팩 받기</span>
+      </span>
+      <span class="promo-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+    <br/>
+    <span class="eyebrow">클로드 글쓰기 스킬 5종</span>
+    <h1 class="hero-title">AI 티 없애는 강력한 글쓰기<br/>이 5개 스킬이 <span class="accent">해결합니다.</span></h1>
+    <p class="hero-sub">기본 상태의 클로드는 얼버무리고 뻔하게 씁니다. 이 다섯 스킬은 그 문제를 단계별로 고칩니다 — <strong style="color:#0A0A0A">장황함 → 지루함 → 훅 없음 → AI 티남 → 당신답지 않음.</strong></p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" href="downloads/content-skills-ko.zip" download>전체 다운로드 (.zip)</a>
+      <a class="btn btn-light" href="#install">▶ 사용법 보기</a>
+    </div>
+    <p class="hero-note">무료 · 이메일 입력 없이 바로 다운로드</p>
+  </div>
+</section>
+
+<!-- ===== PROGRESSION ===== -->
+<section class="progression">
+  <div class="wrap">
+    <h2>좋은 콘텐츠를 막는 5가지 문제,<br/>스킬 하나가 하나씩 해결합니다.</h2>
+    <div class="prog-flow">
+      <span class="prog-step">장황함</span>
+      <span class="prog-arrow">→</span>
+      <span class="prog-step">지루함</span>
+      <span class="prog-arrow">→</span>
+      <span class="prog-step">훅 없음</span>
+      <span class="prog-arrow">→</span>
+      <span class="prog-step">AI 티남</span>
+      <span class="prog-arrow">→</span>
+      <span class="prog-step last">당신답지 않음</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS GRID ===== -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="sec-kicker">5개의 스킬</div>
+      <h2 class="sec-title">각 스킬이 글쓰기의 한 가지 약점을 정확히 겨냥합니다.</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
+        <div class="skill-name">Dumbify</div>
+        <p class="skill-desc">복잡한 아이디어는 그대로 지키면서 중학생도 읽을 수 있는 가독성으로 다시 씁니다. 전문용어를 걷어내고 겹겹이 꼬인 문장을 끊되, 내용을 단순화하진 않습니다.</p>
+        <span class="skill-tag">"장황함"을 고칩니다</span>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 5v14M20 5v14M4 19h16M9 9l3 3-3 3M14 12h3"/></svg></div>
+        <div class="skill-name">Storytelling</div>
+        <p class="skill-desc">BUT/THEREFORE 패턴과 긴장–전환–보상 구조로 글을 짭니다. 유튜브에서 검증된 스토리텔링 역학을 글에 그대로 적용합니다.</p>
+        <span class="skill-tag">"지루함"을 고칩니다</span>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <div class="skill-name">Viral-hooks</div>
+        <p class="skill-desc">첫 문장을 4가지 훅 킬러(지연·혼란·무관함·무관심) 기준으로 진단하고 다시 씁니다. 플랫폼별 타이밍 가이드까지 포함합니다.</p>
+        <span class="skill-tag">"넘겨짐"을 고칩니다</span>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM8 9l8 6M16 9l-8 6"/></svg></div>
+        <div class="skill-name">Anti-AI-Writing</div>
+        <p class="skill-desc">부정 병렬, 재활용된 상투구 같은 'AI가 쓴 티' 패턴을 제거합니다. 5가지 질병을 짚어내고 구체성 사다리를 돌려 사람의 글로 되돌립니다.</p>
+        <span class="skill-tag">"AI 티남"을 고칩니다</span>
+      </div>
+
+      <div class="skill-card diy">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></div>
+        <div class="skill-name">Voice-DNA</div>
+        <p class="skill-desc">당신의 실제 글·대본 20개를 분석해 목소리 프로필(문장 패턴·시그니처 표현·훅·CTA)을 뽑아냅니다. 다운로드가 아니라, 약 2분 만에 직접 만드는 스킬입니다.</p>
+        <span class="skill-tag">"당신답게" 만듭니다</span>
+      </div>
+
+      <a class="skill-card" href="downloads/content-skills-ko.zip" download style="justify-content:center;align-items:flex-start;text-decoration:none;background:var(--black);color:#fff;border-color:var(--black);">
+        <div class="skill-name" style="color:#fff;">5개 전부 받기 →</div>
+        <p class="skill-desc" style="color:rgba(255,255,255,.7);">하나의 .zip으로 다섯 스킬을 한 번에. 클릭하면 바로 다운로드됩니다.</p>
+        <span class="skill-tag" style="background:rgba(255,255,255,.12);color:#fff;">무료 · 바로 다운로드</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== DETAILS ===== -->
+<section class="section cream">
+  <div class="wrap">
+
+    <!-- detail 1 -->
+    <div class="detail">
+      <div class="detail-text">
+        <h3 class="detail-title"><span class="accent">읽히는</span> 글로,<br/>한 번에 이해되게.</h3>
+        <p class="detail-desc">Dumbify는 어려운 단어와 꼬인 문장을 걷어내고, 누구나 한 번에 이해하는 문장으로 다시 씁니다. 깊이는 유지하고 장벽만 낮춥니다.</p>
+        <div class="check-list">
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>중학생 수준 가독성</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>전문용어 제거</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>의미는 그대로</div>
+        </div>
+      </div>
+      <div class="detail-visual">
+        <div class="mock">
+          <div class="mock-label">Before</div>
+          <p class="mock-strike" style="font-size:14px;line-height:1.6;">해당 방법론은 다차원적 변수의 상호작용을 종합적으로 고려하여...</p>
+          <div class="mock-divider"></div>
+          <div class="mock-label" style="color:var(--accent)">After · Dumbify</div>
+          <p style="font-size:15px;font-weight:600;line-height:1.6;">이 방법은 여러 요인을 한꺼번에 봅니다. 그래서 더 정확합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- detail 2 -->
+    <div class="detail flip">
+      <div class="detail-visual">
+        <div class="mock">
+          <div class="mock-label">Hook 진단</div>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:14px;font-weight:600;">첫 문장 점검</p>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;font-weight:700;">
+            <span><span class="mock-pill">지연</span> &nbsp;0.4초 늦음</span>
+            <span><span class="mock-pill">혼란</span> &nbsp;주어 불명확</span>
+            <span style="color:var(--accent)">→ 다시 쓴 훅으로 교체</span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-text">
+        <h3 class="detail-title">첫 문장에서<br/><span class="accent">넘기지 못하게.</span></h3>
+        <p class="detail-desc">Viral-hooks는 네 가지 훅 킬러를 기준으로 도입부를 진단하고, 스크롤을 멈추는 첫 문장으로 다시 씁니다. 플랫폼별 타이밍까지 챙깁니다.</p>
+        <div class="check-list">
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>4대 훅 킬러 진단</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>플랫폼별 타이밍</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>도입부 자동 재작성</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- detail 3 -->
+    <div class="detail">
+      <div class="detail-text">
+        <h3 class="detail-title">AI 티는 빼고,<br/><span class="accent">당신답게.</span></h3>
+        <p class="detail-desc">Anti-AI-Writing이 상투적인 패턴을 잡아내고, Voice-DNA가 당신의 진짜 문체를 학습합니다. 결과물은 도구가 쓴 글이 아니라 당신이 쓴 글이 됩니다.</p>
+        <div class="check-list">
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>AI 상투구 5종 제거</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>나의 문장 패턴 학습</div>
+          <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>시그니처 표현 · 훅 · CTA 반영</div>
+        </div>
+      </div>
+      <div class="detail-visual">
+        <div class="mock">
+          <div class="mock-label" style="color:var(--accent)">Voice-DNA 프로필</div>
+          <div class="mock-row hl"></div>
+          <div class="mock-row w80"></div>
+          <div class="mock-row w60"></div>
+          <div class="mock-divider"></div>
+          <p style="font-size:13px;color:var(--gray);font-weight:600;">내 글 20개 분석 → 문장 패턴 · 시그니처 표현 · 훅 · CTA 추출</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== INSTALL ===== -->
+<section class="section" id="install">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="sec-kicker">설치 방법</div>
+      <h2 class="sec-title">세 가지 방법,<br/>가장 빠른 건 10초.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>붙여넣기 <span class="badge">10초</span></h3>
+        <p>스킬 내용을 복사해, 고치고 싶은 초안과 함께 클로드 채팅에 그대로 붙여넣습니다. 설치 없이 바로 사용.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>한 번 업로드 <span class="badge">Pro · Max</span></h3>
+        <p><strong>설정 → 사용자화 → 스킬</strong>에서 한 번만 등록하면 모든 대화에서 영구적으로 쓸 수 있습니다.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Claude Code</h3>
+        <p>개발자라면 터미널에서 GitHub 저장소를 받아 설치합니다. <code>git clone</code> 후 스킬 폴더 연결.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:46px;" id="download">
+      <a class="btn btn-accent" href="downloads/content-skills-ko.zip" download>전체 다운로드 (.zip)</a>
+      <p class="hero-note" style="margin-top:14px;">개별 스킬도 받을 수 있습니다 —
+        <a href="downloads/dumbify.zip" download style="color:var(--accent);font-weight:700;">Dumbify</a> ·
+        <a href="downloads/storytelling.zip" download style="color:var(--accent);font-weight:700;">Storytelling</a> ·
+        <a href="downloads/viral-hooks.zip" download style="color:var(--accent);font-weight:700;">Viral-hooks</a> ·
+        <a href="downloads/anti-ai-writing.zip" download style="color:var(--accent);font-weight:700;">Anti-AI-Writing</a> ·
+        <a href="downloads/voice-dna.zip" download style="color:var(--accent);font-weight:700;">Voice-DNA</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <h2 class="sec-title">자주 묻는<br/>질문</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q"><span class="plus">+</span> 어떤 클로드 플랜에서 쓸 수 있나요?</button>
+          <div class="faq-a"><div class="inner">붙여넣기 방식은 무료 플랜을 포함해 어디서나 가능합니다. '한 번 업로드(영구 설치)' 방식은 Pro·Max 플랜에서, Claude Code 방식은 터미널 환경에서 사용합니다.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="plus">+</span> 정말 무료인가요?</button>
+          <div class="faq-a"><div class="inner">네. 다섯 스킬 모두 이메일 입력 없이 바로 다운로드할 수 있습니다.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="plus">+</span> 스킬은 어떻게 설치하나요?</button>
+          <div class="faq-a"><div class="inner">가장 빠른 방법은 스킬 내용을 복사해 초안과 함께 채팅에 붙여넣는 것입니다. 영구적으로 쓰려면 설정 → 사용자화 → 스킬에서 업로드하세요.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="plus">+</span> Voice-DNA는 어떻게 만드나요?</button>
+          <div class="faq-a"><div class="inner">당신이 쓴 글이나 말한 대본 20개를 클로드에 넣고 Voice-DNA 스킬을 실행하면, 약 2분 만에 당신만의 목소리 프로필이 만들어집니다.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="wrap final-inner">
+    <div>
+      <h2>이제 클로드가<br/><span class="accent">당신처럼</span> 씁니다.</h2>
+      <p>다섯 스킬을 받아, 장황하고 뻔하고 AI 티 나는 글에서 벗어나세요.</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="downloads/content-skills-ko.zip" download>전체 다운로드</a>
+        <a class="btn btn-light" href="#skills">스킬 둘러보기</a>
+      </div>
+    </div>
+    <svg class="mascot" viewBox="0 0 220 220" fill="none">
+      <ellipse cx="110" cy="196" rx="58" ry="9" fill="#EAE7DF"/>
+      <path d="M110 36c14 0 22 9 27 20s17 13 17 30-12 22-12 34 6 18-6 30-30 14-44 6-14-22-22-30-16-14-16-30 12-18 12-30-2-21 9-30 14-30 28-30z" fill="#0A0A0A"/>
+      <rect x="86" y="92" width="48" height="40" rx="10" fill="#E8502A"/>
+      <circle cx="100" cy="110" r="4" fill="#fff"/>
+      <circle cx="120" cy="110" r="4" fill="#fff"/>
+      <path d="M100 122c4 4 16 4 20 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <path d="M150 70l8-8M158 84l11-3" stroke="#E8502A" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" fill="#E8502A"/><path d="M7 15.5L10 8.5l3 7M8 13h4M14.5 8.5v7" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        글쓰기 스킬
+      </div>
+      <div class="foot-links">
+        <a href="#download">다운로드</a>
+        <a href="https://www.instagram.com/woojooboss_" target="_blank" rel="noopener">인스타그램</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 클로드 글쓰기 스킬</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){
+        item.classList.add('open');
+        var a = item.querySelector('.faq-a');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
